@@ -6,7 +6,7 @@
 /*   By: sniemela <sniemela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 10:00:11 by sniemela          #+#    #+#             */
-/*   Updated: 2025/04/29 13:53:39 by sniemela         ###   ########.fr       */
+/*   Updated: 2025/05/02 15:57:19 by sniemela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ Bureaucrat& Bureaucrat::operator = (const Bureaucrat &other)
 	return (*this);
 }
 
-std::string const Bureaucrat::getName() const
+const std::string& Bureaucrat::getName() const
 {
 	return (_name);
 }
@@ -81,6 +81,20 @@ void	Bureaucrat::decrementGrade()
 	}
 	else
 		_grade++;
+}
+
+void	Bureaucrat::signForm(Form& f)
+{
+	try
+	{
+		f.beSigned(*this);
+		std::cout << getName() << " signed " << f.getName() << std::endl;
+	}
+	catch (const Form::GradeTooLowException &e)
+	{
+		std::cout << getName() << " couldn't sign " << f.getName()
+		<< " because " << e.what() << std::endl;
+	}
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()

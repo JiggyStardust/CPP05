@@ -6,7 +6,7 @@
 /*   By: sniemela <sniemela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 10:00:31 by sniemela          #+#    #+#             */
-/*   Updated: 2025/04/29 13:58:38 by sniemela         ###   ########.fr       */
+/*   Updated: 2025/05/02 15:50:43 by sniemela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,11 @@ class Bureaucrat
 		Bureaucrat(const Bureaucrat &other);
 		Bureaucrat& operator = (const Bureaucrat &other);
 
-		std::string const getName() const;
+		const std::string& getName() const; // avoid copies, take a reference
 		int		getGrade() const;
 		void	incrementGrade();
 		void	decrementGrade();
+		void	signForm();
 
 	class GradeTooLowException : public std::exception
 	{
