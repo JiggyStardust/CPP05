@@ -6,13 +6,13 @@
 /*   By: sniemela <sniemela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 14:22:17 by sniemela          #+#    #+#             */
-/*   Updated: 2025/05/02 15:48:35 by sniemela         ###   ########.fr       */
+/*   Updated: 2025/05/05 09:32:21 by sniemela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Form.hpp"
 
-Form::Form(std::string name, int gradeToSign, int gradeToExec) : 
+Form::Form(std::string name, const int gradeToSign, const int gradeToExec) : 
 	_name(name),
 	_signed(false),
 	_gradeToSign(gradeToSign),
@@ -30,7 +30,11 @@ Form::~Form()
 	std::cout << "Form: " << _name << ": destructor" << std::endl;
 }
 
-Form::Form(const Form& other) : _name(other._name), _signed(other._signed)
+Form::Form(const Form& other) :
+	_name(other._name),
+	_signed(other._signed),
+	_gradeToSign(other._gradeToSign),
+	_gradeToExec(other._gradeToExec)
 {
 	std::cout << "Form: copy constructor" << std::endl;
 }
@@ -50,24 +54,24 @@ const std::string& Form::getName() const
 	return (_name);
 }
 
-bool	Form::getSigned()
+bool	Form::getSigned() const
 {
 	return (_signed);
 }
 
-const int Form::getGradeToSign()
+int Form::getGradeToSign() const
 {
 	return (_gradeToSign);
 }
 
-const int Form::getGradeToExec()
+int Form::getGradeToExec() const
 {
 	return (_gradeToExec);
 }
 
-void	Form::beSigned(Bureucrat& b)
+void	Form::beSigned(Bureaucrat& b)
 {
-	if (b.getGrade <= getGradeToSign())
+	if (b.getGrade() < getGradeToSign())
 		_signed = true;
 	else
 		throw Form::GradeTooLowException();
@@ -85,13 +89,13 @@ const char* Form::GradeTooLowException::what() const throw()
 
 std::ostream & operator<<(std::ostream &os, const Form &f)
 {
-	std::string signed;
+	std::string state;
 	if (f.getSigned())
-		signed = "signed";
+		state = "signed";
 	else
-		signed = "unsigned";
+		state = "unsigned";
 	
-	os << "Form: "<< f.getName() << " is " << signed << ", grade to sign: " <<
+	os << "Form: "<< f.getName() << " is " << state << ", grade to sign: " <<
 	f.getGradeToSign() << ", grade to execute: " << f.getGradeToExec() << "." << std::endl;
 	return (os);
 }

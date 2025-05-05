@@ -6,7 +6,7 @@
 #    By: sniemela <sniemela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/29 09:58:04 by sniemela          #+#    #+#              #
-#    Updated: 2025/04/29 12:42:57 by sniemela         ###   ########.fr        #
+#    Updated: 2025/05/05 09:08:04 by sniemela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME = Bureaucrat
 CPPFLAGS = -Wall -Werror -Wextra -std=c++11
 CPP = c++
 SOURCES = src/main.cpp \
-			src/Bureaucrat.cpp
+			src/Bureaucrat.cpp \
+			src/Form.cpp
 
 OBJDIR = obj
 OBJS = $(SOURCES:src/%.cpp=$(OBJDIR)/%.o)

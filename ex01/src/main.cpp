@@ -6,7 +6,7 @@
 /*   By: sniemela <sniemela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 09:59:08 by sniemela          #+#    #+#             */
-/*   Updated: 2025/04/29 13:59:20 by sniemela         ###   ########.fr       */
+/*   Updated: 2025/05/05 09:37:11 by sniemela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,55 @@ int	main(void)
 	{
 		std::cout << "Error: " << e.what() << std::endl;
 	}
+
+
+	std::cout << "\n\n-----FORMS------" << std::endl;
+	try
+	{
+		std::cout << "Creating a Bureaucrat\n";
+		Bureaucrat toby("Toby", 10);
+		std::cout << toby << std::endl;
+		std::cout << "\nCreating a new Form\n";
+		Form pass("Hygiene Pass", 10, 149);
+		std::cout << pass << std::endl;
+
+		std::cout << "Trying to sign the Form:\n";
+		try
+		{
+			toby.signForm(pass);
+		}
+		catch(const std::exception& e)
+		{
+			std::cout << "Error: " << e.what() << std::endl;
+		}
+		std::cout << pass << std::endl;
+
+		std::cout << "\nDecreasing Bureaucrat's grade and trying to sign again\n";
+		try
+		{
+			toby.decrementGrade();
+			/* code */
+		}
+		catch(const std::exception& e)
+		{
+			std::cout << "Error: " << e.what() << std::endl;
+		}
+		
+		std::cout << toby << std::endl;
+		try
+		{
+			toby.signForm(pass);
+		}
+		catch(const std::exception& e)
+		{
+			std::cout << "Error: " << e.what() << std::endl;
+		}
+		
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << "Error: " << e.what() << std::endl;
+	}
+	
 	return (0);
 }
