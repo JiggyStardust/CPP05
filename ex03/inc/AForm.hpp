@@ -6,7 +6,7 @@
 /*   By: sniemela <sniemela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 10:37:32 by sniemela          #+#    #+#             */
-/*   Updated: 2025/05/05 13:24:37 by sniemela         ###   ########.fr       */
+/*   Updated: 2025/05/07 16:22:12 by sniemela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class AForm
 	
 	public:
 		AForm(std::string name = "default", const int gradeToSign = 1, const int gradeToExec = 1); // take consts away?
-		~AForm();
+		virtual ~AForm();
 		AForm(const AForm& other);
 		AForm & operator = (const AForm& other);
 

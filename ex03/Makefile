@@ -6,7 +6,7 @@
 #    By: sniemela <sniemela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/29 09:58:04 by sniemela          #+#    #+#              #
-#    Updated: 2025/05/05 15:20:15 by sniemela         ###   ########.fr        #
+#    Updated: 2025/05/07 15:53:13 by sniemela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ SOURCES = src/main.cpp \
 			src/AForm.cpp \
 			src/ShrubberyCreationForm.cpp \
 			src/RobotomyRequestForm.cpp \
-			src/PresidentialPardonForm.cpp
+			src/PresidentialPardonForm.cpp \
+			src/Intern.cpp
 
 OBJDIR = obj
 OBJS = $(SOURCES:src/%.cpp=$(OBJDIR)/%.o)

@@ -6,9 +6,11 @@
 /*   By: sniemela <sniemela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 10:39:51 by sniemela          #+#    #+#             */
-/*   Updated: 2025/05/05 13:24:49 by sniemela         ###   ########.fr       */
+/*   Updated: 2025/05/07 15:57:58 by sniemela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"

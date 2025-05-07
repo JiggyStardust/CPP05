@@ -6,7 +6,7 @@
 /*   By: sniemela <sniemela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 09:59:08 by sniemela          #+#    #+#             */
-/*   Updated: 2025/05/05 15:31:42 by sniemela         ###   ########.fr       */
+/*   Updated: 2025/05/07 16:18:52 by sniemela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "../inc/ShrubberyCreationForm.hpp"
 #include "../inc/RobotomyRequestForm.hpp"
 #include "../inc/PresidentialPardonForm.hpp"
+#include "../inc/Intern.hpp"
 
 int	main(void)
 {
@@ -138,153 +139,245 @@ int	main(void)
 	// 	std::cout << "Error: " << e.what() << std::endl;
 	// }
 
-	std::cout << "\n\n-----SHRUBBERY CREATION FORM------" << std::endl;
-	try
-	{
-		std::cout << "Creating a Bureaucrat\n";
-		Bureaucrat toby("Toby", 145);
-		std::cout << toby << std::endl;
+	// std::cout << "\n\n-----SHRUBBERY CREATION FORM------" << std::endl;
+	// try
+	// {
+	// 	std::cout << "Creating a Bureaucrat\n";
+	// 	Bureaucrat toby("Toby", 145);
+	// 	std::cout << toby << std::endl;
 
-		std::cout << "\nCreating a new Form\n";
-		ShrubberyCreationForm pass("home");
-		std::cout << pass << std::endl;
+	// 	std::cout << "\nCreating a new Form\n";
+	// 	ShrubberyCreationForm pass("home");
+	// 	std::cout << pass << std::endl;
 
-		std::cout << "Trying to sign the Form:\n";
-		try
-		{
-			toby.signForm(pass);
-		}
-		catch(const std::exception& e)
-		{
-			std::cout << "Error: " << e.what() << std::endl;
-		}
-		std::cout << pass << std::endl;
+	// 	std::cout << "Trying to sign the Form:\n";
+	// 	try
+	// 	{
+	// 		toby.signForm(pass);
+	// 	}
+	// 	catch(const std::exception& e)
+	// 	{
+	// 		std::cout << "Error: " << e.what() << std::endl;
+	// 	}
+	// 	std::cout << pass << std::endl;
 
-		std::cout << "\nDecreasing Bureaucrat's grade as much as possible and trying to execute\n";
-		for (int i = 1; i < 150; i++)
-		{
-			try
-			{
-				toby.decrementGrade();
-			}
-			catch(const std::exception& e)
-			{
-				std::cout << i <<": Error: " << e.what() << std::endl;
-				break ;
-			}
-			std::cout << i << ": " << toby << std::endl;
-		}
-		std::cout << toby << std::endl;
+	// 	std::cout << "\nDecreasing Bureaucrat's grade as much as possible and trying to execute\n";
+	// 	for (int i = 1; i < 150; i++)
+	// 	{
+	// 		try
+	// 		{
+	// 			toby.decrementGrade();
+	// 		}
+	// 		catch(const std::exception& e)
+	// 		{
+	// 			std::cout << i <<": Error: " << e.what() << std::endl;
+	// 			break ;
+	// 		}
+	// 		std::cout << i << ": " << toby << std::endl;
+	// 	}
+	// 	std::cout << toby << std::endl;
 
-		std::cout << "\nIncreasing Bureaucrat's grade until it should match desired execGrade, then trying to execute\n";
-		int times = toby.getGrade() - pass.getGradeToExec();
-		for (int i = 1; i <= times; i++)
-		{
-			try
-			{
-				toby.incrementGrade();
-			}
-			catch(const std::exception& e)
-			{
-				std::cout << "Error: " << e.what() << std::endl;
-				break ;
-			}
-			std::cout << i << ": " << toby;
-		}
-		std::cout << toby << std::endl;
-		std::cout << pass << std::endl;
-		try
-		{
-			toby.executeForm(pass);
-		}
-		catch(const std::exception& e)
-		{
-			std::cout << "Error: " << e.what() << std::endl;
-		}
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << "Error: " << e.what() << std::endl;
-	}
+	// 	std::cout << "\nIncreasing Bureaucrat's grade until it should match desired execGrade, then trying to execute\n";
+	// 	int times = toby.getGrade() - pass.getGradeToExec();
+	// 	for (int i = 1; i <= times; i++)
+	// 	{
+	// 		try
+	// 		{
+	// 			toby.incrementGrade();
+	// 		}
+	// 		catch(const std::exception& e)
+	// 		{
+	// 			std::cout << "Error: " << e.what() << std::endl;
+	// 			break ;
+	// 		}
+	// 		std::cout << i << ": " << toby;
+	// 	}
+	// 	std::cout << toby << std::endl;
+	// 	std::cout << pass << std::endl;
+	// 	try
+	// 	{
+	// 		toby.executeForm(pass);
+	// 	}
+	// 	catch(const std::exception& e)
+	// 	{
+	// 		std::cout << "Error: " << e.what() << std::endl;
+	// 	}
+	// }
+	// catch(const std::exception& e)
+	// {
+	// 	std::cout << "Error: " << e.what() << std::endl;
+	// }
 	
-	std::cout << "\n\n-----ROBOTOMY FORM------" << std::endl;
-	try
-	{
-		std::cout << "Creating a Bureaucrat\n";
-		Bureaucrat toby("Toby", 72);
-		std::cout << toby << std::endl;
+	// std::cout << "\n\n-----ROBOTOMY FORM------" << std::endl;
+	// try
+	// {
+	// 	std::cout << "Creating a Bureaucrat\n";
+	// 	Bureaucrat toby("Toby", 72);
+	// 	std::cout << toby << std::endl;
 
-		std::cout << "\nCreating a new Form\n";
-		RobotomyRequestForm pass("Elon Musk");
-		std::cout << pass << std::endl;
+	// 	std::cout << "\nCreating a new Form\n";
+	// 	RobotomyRequestForm pass("Elon Musk");
+	// 	std::cout << pass << std::endl;
 
-		std::cout << "Trying to sign the Form:\n";
-		try
-		{
-			toby.signForm(pass);
-		}
-		catch(const std::exception& e)
-		{
-			std::cout << "Error: " << e.what() << std::endl;
-		}
-		std::cout << pass << std::endl;
+	// 	std::cout << "Trying to sign the Form:\n";
+	// 	try
+	// 	{
+	// 		toby.signForm(pass);
+	// 	}
+	// 	catch(const std::exception& e)
+	// 	{
+	// 		std::cout << "Error: " << e.what() << std::endl;
+	// 	}
+	// 	std::cout << pass << std::endl;
 		
 
-		std::cout << "\nIncreasing Bureaucrat's grade until it should match desired execGrade, then trying to execute\n";
-		int times = toby.getGrade() - pass.getGradeToExec();
-		for (int i = 1; i <= times; i++)
-		{
-			try
-			{
-				toby.incrementGrade();
-			}
-			catch(const std::exception& e)
-			{
-				std::cout << "Error: " << e.what() << std::endl;
-				break ;
-			}
-			std::cout << i << ": " << toby;
-		}
-		std::cout << toby << std::endl;
-		std::cout << pass << std::endl;
-		try
-		{
-			toby.executeForm(pass);
-		}
-		catch(const std::exception& e)
-		{
-			std::cout << "Error: " << e.what() << std::endl;
-		}
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << "Error: " << e.what() << std::endl;
-	}
+	// 	std::cout << "\nIncreasing Bureaucrat's grade until it should match desired execGrade, then trying to execute\n";
+	// 	int times = toby.getGrade() - pass.getGradeToExec();
+	// 	for (int i = 1; i <= times; i++)
+	// 	{
+	// 		try
+	// 		{
+	// 			toby.incrementGrade();
+	// 		}
+	// 		catch(const std::exception& e)
+	// 		{
+	// 			std::cout << "Error: " << e.what() << std::endl;
+	// 			break ;
+	// 		}
+	// 		std::cout << i << ": " << toby;
+	// 	}
+	// 	std::cout << toby << std::endl;
+	// 	std::cout << pass << std::endl;
+	// 	try
+	// 	{
+	// 		toby.executeForm(pass);
+	// 	}
+	// 	catch(const std::exception& e)
+	// 	{
+	// 		std::cout << "Error: " << e.what() << std::endl;
+	// 	}
+	// }
+	// catch(const std::exception& e)
+	// {
+	// 	std::cout << "Error: " << e.what() << std::endl;
+	// }
 
-	std::cout << "\n\n-----PRESIDENTIAL PARDON FORM------" << std::endl;
+	// std::cout << "\n\n-----PRESIDENTIAL PARDON FORM------" << std::endl;
+	// try
+	// {
+	// 	std::cout << "Creating a Bureaucrat\n";
+	// 	Bureaucrat toby("Toby", 30);
+	// 	std::cout << toby << std::endl;
+
+	// 	std::cout << "\nCreating a new Form\n";
+	// 	PresidentialPardonForm pass("Zacharias Smith");
+	// 	std::cout << pass << std::endl;
+
+	// 	std::cout << "Trying to sign the Form:\n";
+	// 	try
+	// 	{
+	// 		toby.signForm(pass);
+	// 	}
+	// 	catch(const std::exception& e)
+	// 	{
+	// 		std::cout << "Error: " << e.what() << std::endl;
+	// 	}
+	// 	std::cout << pass << std::endl;
+		
+	// 	std::cout << "\nIncreasing Bureaucrat's grade until it should match desired signGrade, then trying to sign\n";
+	// 	int times = toby.getGrade() - pass.getGradeToSign();
+	// 	for (int i = 1; i <= times; i++)
+	// 	{
+	// 		try
+	// 		{
+	// 			toby.incrementGrade();
+	// 		}
+	// 		catch(const std::exception& e)
+	// 		{
+	// 			std::cout << "Error: " << e.what() << std::endl;
+	// 			break ;
+	// 		}
+	// 		std::cout << i << ": " << toby;
+	// 	}
+	// 	std::cout << toby << std::endl;
+	// 	std::cout << pass << std::endl;
+	// 	try
+	// 	{
+	// 		toby.signForm(pass);
+	// 	}
+	// 	catch(const std::exception& e)
+	// 	{
+	// 		std::cout << "Error: " << e.what() << std::endl;
+	// 	}
+	// 	try
+	// 	{
+	// 		toby.executeForm(pass);
+	// 	}
+	// 	catch(const std::exception& e)
+	// 	{
+	// 		std::cout << "Error: " << e.what() << std::endl;
+	// 	}
+	// 	std::cout << "\nIncreasing Bureaucrat's grade until it should match desired execGrade, then trying to execute\n";
+	// 	times = toby.getGrade() - pass.getGradeToExec();
+	// 	for (int i = 1; i <= times; i++)
+	// 	{
+	// 		try
+	// 		{
+	// 			toby.incrementGrade();
+	// 		}
+	// 		catch(const std::exception& e)
+	// 		{
+	// 			std::cout << "Error: " << e.what() << std::endl;
+	// 			break ;
+	// 		}
+	// 		std::cout << i << ": " << toby;
+	// 	}
+	// 	std::cout << toby << std::endl;
+	// 	std::cout << pass << std::endl;
+	// 	try
+	// 	{
+	// 		toby.executeForm(pass);
+	// 	}
+	// 	catch(const std::exception& e)
+	// 	{
+	// 		std::cout << "Error: " << e.what() << std::endl;
+	// 	}
+	// }
+	// catch(const std::exception& e)
+	// {
+	// 	std::cout << "Error: " << e.what() << std::endl;
+	// }
+
+
+
+
+	std::cout << "\n\n-----INTERN-----" << std::endl;
 	try
 	{
 		std::cout << "Creating a Bureaucrat\n";
 		Bureaucrat toby("Toby", 30);
 		std::cout << toby << std::endl;
 
-		std::cout << "\nCreating a new Form\n";
-		PresidentialPardonForm pass("Zacharias Smith");
-		std::cout << pass << std::endl;
+		std::cout << "\nCreating an Intern and a new Form\n";
+
+		Intern charlie;
+		
+		AForm *pass = charlie.makeForm("robotomy request", "Burt");
+		std::cout << *pass << std::endl;
 
 		std::cout << "Trying to sign the Form:\n";
 		try
 		{
-			toby.signForm(pass);
+			toby.signForm(*pass);
 		}
 		catch(const std::exception& e)
 		{
 			std::cout << "Error: " << e.what() << std::endl;
 		}
-		std::cout << pass << std::endl;
+		std::cout << *pass << std::endl;
 		
 		std::cout << "\nIncreasing Bureaucrat's grade until it should match desired signGrade, then trying to sign\n";
-		int times = toby.getGrade() - pass.getGradeToSign();
+		int times = toby.getGrade() - pass->getGradeToSign();
 		for (int i = 1; i <= times; i++)
 		{
 			try
@@ -299,10 +392,10 @@ int	main(void)
 			std::cout << i << ": " << toby;
 		}
 		std::cout << toby << std::endl;
-		std::cout << pass << std::endl;
+		std::cout << *pass << std::endl;
 		try
 		{
-			toby.signForm(pass);
+			toby.signForm(*pass);
 		}
 		catch(const std::exception& e)
 		{
@@ -310,14 +403,14 @@ int	main(void)
 		}
 		try
 		{
-			toby.executeForm(pass);
+			toby.executeForm(*pass);
 		}
 		catch(const std::exception& e)
 		{
 			std::cout << "Error: " << e.what() << std::endl;
 		}
 		std::cout << "\nIncreasing Bureaucrat's grade until it should match desired execGrade, then trying to execute\n";
-		times = toby.getGrade() - pass.getGradeToExec();
+		times = toby.getGrade() - pass->getGradeToExec();
 		for (int i = 1; i <= times; i++)
 		{
 			try
@@ -332,19 +425,21 @@ int	main(void)
 			std::cout << i << ": " << toby;
 		}
 		std::cout << toby << std::endl;
-		std::cout << pass << std::endl;
+		std::cout << *pass << std::endl;
 		try
 		{
-			toby.executeForm(pass);
+			toby.executeForm(*pass);
 		}
 		catch(const std::exception& e)
 		{
 			std::cout << "Error: " << e.what() << std::endl;
 		}
+		delete pass;
 	}
 	catch(const std::exception& e)
 	{
 		std::cout << "Error: " << e.what() << std::endl;
 	}
+
 	return (0);
 }
