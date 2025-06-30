@@ -6,7 +6,7 @@
 #    By: sniemela <sniemela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/29 09:58:04 by sniemela          #+#    #+#              #
-#    Updated: 2025/04/29 14:10:16 by sniemela         ###   ########.fr        #
+#    Updated: 2025/06/30 14:19:00 by sniemela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@ NAME = Forms
 CPPFLAGS = -Wall -Werror -Wextra -std=c++11
 CPP = c++
 SOURCES = src/main.cpp \
-			src/Forms.cpp \
 			src/Bureaucrat.cpp
 
 OBJDIR = obj
